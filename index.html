@@ -27,10 +27,11 @@
         </div>
       </div>
     </nav>
-    <div class="container">
+    <div class="container"><!-- Open div container-->
       <div class="row">
-        <div class="col-xs-8 col-xs-offset-2"> <!-- Beginning of main column -->
-          <form class="form-horizontal"> <!-- Beginning of form tag -->
+        <div class="col-xs-12">
+          <h2>Add/Edit Skills</h2>
+          <form class="form-horizontal">
             <div class="form-group"><!-- Begin add skill form group-->
               <label for="skill" class="col-xs-2 control-label">Skill</label>
               <div class="col-xs-10">
@@ -43,6 +44,14 @@
                   <button class="btn btn-default">Add Skill</button>
               </div>
             </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6"> <!-- Beginning of main column -->
+          <h2>Skill Details</h2>
+          <form class="form-horizontal"> <!-- Beginning of form tag -->
+
 
 
             <div class="form-group"><!-- Begin Skill Name Form  Group-->
@@ -142,92 +151,88 @@
             </div><!-- End Skill Level Dropdown Form Group-->
           </form>
         </div> <!-- End of main column -->
-      </div><!-- End main row-->
 
-      <div class="row"><!-- Begin prereq row -->
-        <div class="col-xs-8 col-xs-offset-2"><!-- Begin prereq col -->
 
-          <div class="form-group"><!-- Begin Prereq Skill Dropdown Form Group-->
-            <label for="skill-prereq" class="col-xs-2 control-label">Pre-requiste Skill</label>
-            <div class="col-xs-10">
-              <select id="skill-prereq" class="form-control">
-              </select>
-            </div>
-          </div><!-- End Pre-req Skill  Dropdown Form Group-->
-          <div class="form-group">
-            <div class="col-xs-offset-2 col-xs-10">
-              <button class="btn btn-default">Add Pre-req</button>
-              <button class="btn btn-default">Delete Pre-req</button>
-            </div>
-          </div>
 
-          <div class="form-group"><!-- Begin Skill List Select Area Form Group-->
-            <label for="skill-list" class="col-xs-2 control-label">Skills</label>
-            <div class="col-xs-10">
-              <select id="skill-list" multiple class="form-control">
-              </select>
+        <div class="col-xs-6"><!-- Begin prereq col -->
+          <h2>Skill Prerequistes</h2>
+          <form class="form-horizontal">
+            <div class="form-group"><!-- Begin Prereq Skill Dropdown Form Group-->
+              <label for="skill-prereq" class="col-xs-2 control-label">Prerequiste Skill</label>
+              <div class="col-xs-10">
+                <select id="skill-prereq" class="form-control">
+                </select>
+              </div>
+            </div><!-- End Pre-req Skill  Dropdown Form Group-->
+            <div class="form-group">
+              <div class="col-xs-offset-2 col-xs-10">
+                <button class="btn btn-default">Add Prereq</button>
+                <button class="btn btn-default">Delete Prereq</button>
+              </div>
             </div>
-          </div><!-- End Skill List Select Area Form Group-->
-          <div class="form-group">
-            <div class="col-xs-offset-2 col-xs-10">
-                <button class="btn btn-default">Delete Skill</button>
-            </div>
-          </div>
 
-          <div class="form-group"><!-- Begin Skill Add Dropdown Form Group-->
-            <label for="skill-choice" class="col-xs-2 control-label">Chose Skill</label>
-            <div class="col-xs-10">
-              <select id="skill-choice" class="form-control">
-              </select>
+            <div class="form-group"><!-- Begin Skill List Select Area Form Group-->
+              <label for="skill-list" class="col-xs-2 control-label">Skills</label>
+              <div class="col-xs-10">
+                <select id="skill-list" multiple class="form-control">
+                </select>
+              </div>
+            </div><!-- End Skill List Select Area Form Group-->
+            <div class="form-group">
+              <div class="col-xs-offset-2 col-xs-10">
+                  <button class="btn btn-default">Delete Skill</button>
+              </div>
             </div>
-          </div><!-- End Skill Add Dropdown Form Group-->
-          <div class="form-group">
-            <div class="col-xs-offset-2 col-xs-10">
-              <button class="btn btn-default">Add Skill</button>
+
+            <div class="form-group"><!-- Begin Skill Add Dropdown Form Group-->
+              <label for="skill-choice" class="col-xs-2 control-label">Chose Skill</label>
+              <div class="col-xs-10">
+                <select id="skill-choice" class="form-control">
+                </select>
+              </div>
+            </div><!-- End Skill Add Dropdown Form Group-->
+            <div class="form-group">
+              <div class="col-xs-offset-2 col-xs-10">
+                <button class="btn btn-default">Add Skill</button>
+              </div>
             </div>
-          </div>
+          </form>
 
 
         </div><!-- End prereq col -->
       </div><!-- End prereq row -->
       <div class="row"><!--Begin save/delete row-->
-        <div class="col-xs-8 col-xs-offset-2"><!--Begin save/delete column-->
-          <div class="form-group">
-            <div class="col-xs-offset-2 col-xs-10">
-              <button class="btn btn-default">Save Skill</button>
-              <button class="btn btn-default">Delete Skill</button>
-            </div>
-          </div>
+        <div class="col-xs-12"><!--Begin save/delete column-->
+          <hr>
+
+
+                <button class="btn btn-default">Save Skill</button>
+                <button class="btn btn-default">Delete Skill</button>
+
         </div><!--End save/delete column-->
       </div><!-- End save/delete row-->
 
-      <div class="row">
-        <div class="col-xs-8 col-xs-offset-2">
-          <div class="form-group"><!-- Begin JSON Area Form Group-->
-            <label for="skills-json-area" class="col-xs-2 control-label">Skills JSON</label>
-            <div class="col-xs-offset-2 col-xs-10">
-              <textarea class="form-control" rows="3" id="skills-json-area">
-
-              </textarea>
-            </div>
-          </div><!-- End JSON Area Form Group-->
-        </div>
-      </div>
-
-      <div class="row"><!--Begin import/export row-->
-        <div class="col-xs-8 col-xs-offset-2"><!--Begin import/export column-->
-          <div class="form-group">
-            <div class="col-xs-offset-2 col-xs-10">
-              <button class="btn btn-default">Import JSON</button>
-              <button class="btn btn-default">Export JSON</button>
-            </div>
-          </div>
-        </div><!--End import/export column-->
-      </div><!-- End import/export row-->
-
-
-
-    </div>
+      <div class="row" style="margin-top: 5em;"><!-- Begin THIS row-->
+        <div class="col-xs-6"><!-- Begin THIS col-->
+          <h2>Import/Export JSON</h2>
+          <form class="form-horizontal"><!-- Begin JSON form-->
+            <div class="form-group"><!-- Begin JSON Area Form Group-->
+              <label for="skills-json-area" class="col-xs-2 control-label">Skills JSON</label>
+              <div class="col-xs-10">
+                <textarea class="form-control" rows="3" id="skills-json-area">
+                </textarea>
+              </div>
+            </div><!-- End JSON Area Form Group-->
+            <div class="form-group"><!--Begin import/export-->
+              <div class="col-xs-offset-2 col-xs-10">
+                <button class="btn btn-default">Import JSON</button>
+                <button class="btn btn-default">Export JSON</button>
+              </div>
+            </div><!-- End import/export-->
+          </form><!-- End JSON form-->
+        </div><!-- End this col-->
+      </div><!-- End THIS row -->
+    </div><!-- Close div container-->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
