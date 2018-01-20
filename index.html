@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Static Skill File Generator</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12"> <!-- Beginning of main column -->
+          <form> <!-- Beginning of form tag -->
+            <div class="form-group"><!-- Begin add skill form group-->
+              <label for="skill">Skill</label>
+              <select id="skill" class="form-control">
+              </select>
+
+            </div><!-- End add skill form group -->
+            <button class="btn btn-default">Add Skill</button>
+
+            <div class="form-group"><!-- Begin Skill Name Form  Group-->
+              <label for="skill-name">Skill Name</label>
+              <input id="skill-name" class="form-control">
+            </div><!--End Skill Name Form Group-->
+
+            <div class="form-group"><!-- Begin Skill Class Dropdown Form Group-->
+              <label for="skill-class">Skill Class</label>
+              <select id="skill-class" class="form-control">
+              </select>
+            </div><!-- End Skill Class Dropdown Form Group-->
+
+            <div class="form-group"><!-- Begin Skill Cost Form  Group-->
+              <label for="skill-cost">Skill Cost</label>
+              <input id="skill-cost" class="form-control">
+            </div><!--End Skill Cost Form Group-->
+
+            <div class="checkbox">
+              <label>
+                <input type="checkbox">Is Viewable</label>
+            </div>
+
+            <div class="form-group"><!-- Begin Skill Health Form  Group-->
+              <label for="skill-health">Skill Health</label>
+              <input id="skill-health" class="form-control">
+            </div><!--End Skill Health Form Group-->
+
+            <div class="form-group"><!-- Begin Skill Group Dropdown Form Group-->
+              <label for="skill-group">Skill Group</label>
+              <select id="skill-group" class="form-control">
+              </select>
+            </div><!-- End Skill Group Dropdown Form Group-->
+
+            <div class="form-group"><!-- Begin Skill Hand Dropdown Form Group-->
+              <label for="skill-hand">Skill Hand</label>
+              <select id="skill-hand" class="form-control">
+                <option>Left Hand</option>
+                <option>Right Hand</option>
+                <option>None</option>
+              </select>
+            </div><!-- End Skill Hand Dropdown Form Group-->
+
+            <div class="form-group"><!-- Begin Skill Level Dropdown Form Group-->
+              <label for="skill-level">Skill Level</label>
+              <select id="skill-level" class="form-control">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+              </select>
+            </div><!-- End Skill Level Dropdown Form Group-->
+          </form>
+
+        </div> <!-- End of main column -->
+
+      </div><!-- End main row-->
+      <div class="row"><!--Begin save/delete row-->
+        <div class="col-xs-12"><!--Begin save/delete column-->
+          <button class="btn btn-default">Save Skill</button>
+          <button class="btn btn-default">Delete Skill</button>
+        </div><!--End save/delete column-->
+      </div><!-- End save/delete row-->
+
+      <div class="row"><!-- Begin prereq row -->
+        <div class="col-xs-12"><!-- Begin prereq col -->
+
+          <div class="form-group"><!-- Begin Prereq Skill Dropdown Form Group-->
+            <label for="skill-prereq">Pre-requiste Skill</label>
+            <select id="skill-prereq" class="form-control">
+            </select>
+          </div><!-- End Pre-req Skill  Dropdown Form Group-->
+          <button class="btn btn-default">Add Pre-req</button>
+          <button class="btn btn-default">Delete Pre-req</button>
+
+          <div class="form-group"><!-- Begin Skill List Select Area Form Group-->
+            <label for="skill-list">Skills</label>
+            <select id="skill-list" multiple class="form-control">
+            </select>
+          </div><!-- End Skill List Select Area Form Group-->
+          <button class="btn btn-default">Delete Skill</button>
+
+          <div class="form-group"><!-- Begin Skill Add Dropdown Form Group-->
+            <label for="skill-choice">Chose Skill</label>
+            <select id="skill-choice" class="form-control">
+
+            </select>
+          </div><!-- End Skill Add Dropdown Form Group-->
+          <button class="btn btn-default">Add Skill</button>
+
+
+        </div><!-- End prereq col -->
+      </div><!-- End prereq row -->
+
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
