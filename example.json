@@ -1,0 +1,17 @@
+{
+  "groups": [
+
+  ],
+	"skills": {
+		"SkillName": {
+			"group": "name",
+			"warrior": 30,
+			"rogue": 31,
+			"prereqs": [
+				[],
+				[],
+				[]
+			]
+		}
+	}
+}
