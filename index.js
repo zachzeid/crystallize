@@ -24,6 +24,12 @@ $(document).ready(function() {
   $('#add-skill-prereq-and').click(function(){
     console.log('Adding skill to pre-req list');
   });
+  $('#import-json').click(function(){
+    console.log('Importing JSON into Crystallize.');
+  });
+  $('#export-json').click(function(){
+    console.log('Exporting JSON from Crystallize');
+  });
 
 
 });
