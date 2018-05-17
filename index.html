@@ -9,6 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/base.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,14 +37,14 @@
             <div class="form-group"><!-- Begin add skill form group-->
               <label for="skill" class="col-xs-2 control-label">Choose Existing Skill</label>
               <div class="col-xs-10">
-                <select id="skill" class="form-control">
+                <select id="skill-select-main" class="form-control">
                 </select>
               </div>
             </div><!-- End add skill form group -->
             <div class="form-group">
               <div class="col-xs-offset-2 col-xs-10">
-                  <button class="btn btn-default" id="main-skill-select">Add New Skill</button>
-                  <button class="btn btn-default" id="del-skill-prereq-and">Delete Selected Skill</button>
+                  <button class="btn btn-default" id="add-skill-select-main">Add New Skill</button>
+                  <button class="btn btn-default" id="del-skill-select-main">Delete Selected Skill</button>
               </div>
             </div>
           </form>
@@ -52,10 +53,7 @@
       <div class="row">
         <div class="col-xs-6"> <!-- Beginning of main column -->
           <h2>Skill Details</h2>
-          <form class="form-horizontal"> <!-- Beginning of form tag -->
-
-
-
+          <form class="form-horizontal" id="skill-details"> <!-- Beginning of form tag -->
             <div class="form-group"><!-- Begin Skill Name Form  Group-->
               <label for="skill-name" class="col-xs-2 control-label">Skill Name</label>
               <div class="col-xs-10">
@@ -63,30 +61,38 @@
               </div>
             </div><!--End Skill Name Form Group-->
 
-            <div class="form-group"><!-- Begin Skill Class Dropdown Form Group-->
-              <label for="skill-class" class="col-xs-2 control-label">Skill Class</label>
+            <div class="form-group"><!-- Begin Skill Cost Form  Group-->
+              <label for="warrior-skill-cost" class="col-xs-2 control-label">Warrior Skill Cost</label>
               <div class="col-xs-10">
-                <select id="skill-class" class="form-control">
-                  <option></option>
-                  <option>Warrior</option>
-                  <option>Rogue</option>
-                  <option>Cleric</option>
-                  <option>Mage</option>
-                </select>
+                <input id="warrior-skill-cost" class="form-control" data-rule-number="true">
               </div>
-            </div><!-- End Skill Class Dropdown Form Group-->
+            </div><!--End Skill Cost Form Group-->
 
             <div class="form-group"><!-- Begin Skill Cost Form  Group-->
-              <label for="skill-cost" class="col-xs-2 control-label">Skill Cost</label>
+              <label for="rogue-skill-cost" class="col-xs-2 control-label">Rogue Skill Cost</label>
               <div class="col-xs-10">
-                <input id="skill-cost" class="form-control">
+                <input id="rogue-skill-cost" class="form-control" data-rule-number="true">
+              </div>
+            </div><!--End Skill Cost Form Group-->
+
+            <div class="form-group"><!-- Begin Skill Cost Form  Group-->
+              <label for="mage-skill-cost" class="col-xs-2 control-label">Mage Skill Cost</label>
+              <div class="col-xs-10">
+                <input id="mage-skill-cost" class="form-control" data-rule-number="true">
+              </div>
+            </div><!--End Skill Cost Form Group-->
+
+            <div class="form-group"><!-- Begin Skill Cost Form  Group-->
+              <label for="cleric-skill-cost" class="col-xs-2 control-label">Cleric Skill Cost</label>
+              <div class="col-xs-10">
+                <input id="cleric-skill-cost" class="form-control" data-rule-number="true">
               </div>
             </div><!--End Skill Cost Form Group-->
 
             <div class="form-group">
               <div class="col-xs-offset-2 col-xs-10">
                 <div class="checkbox">
-                  <label><input type="checkbox">Is Viewable</label>
+                  <label><input type="checkbox" id="is-viewable">Is Viewable</label>
                 </div>
               </div>
             </div>
@@ -95,12 +101,12 @@
             <div class="form-group"><!-- Begin Skill Health Form  Group-->
               <label for="skill-health" class="col-xs-2 control-label">Skill Health</label>
               <div class="col-xs-10">
-                <input id="skill-health" class="form-control">
+                <input id="skill-health" class="form-control" data-rule-number="true">
               </div>
             </div><!--End Skill Health Form Group-->
 
             <div class="form-group"><!-- Begin Skill Group Dropdown Form Group-->
-              <label for="skill-group" class="col-xs-2 control-label">Skill Group</label>
+              <label for="skill-group" class="col-xs-2 control-label" data-rule-required="true">Skill Group</label>
               <div class="col-xs-10">
                 <select id="skill-group" class="form-control">
                   <option></option>
@@ -138,11 +144,14 @@
               </div>
             </div><!-- End Skill Hand Dropdown Form Group-->
 
+
+            <!-- #for skill level, if 0, then skill can be purchased repeatedly, else
+            # skill level is the MAX level a skill can be purchased for. -->
             <div class="form-group"><!-- Begin Skill Level Dropdown Form Group-->
-              <label for="skill-level" class="col-xs-2 control-label">Skill Level</label>
+              <label for="max-skill-level" class="col-xs-2 control-label">Max Skill Level</label>
               <div class="col-xs-10">
-                <select id="skill-level" class="form-control">
-                  <option>0</option>
+                <select id="max-skill-level" class="form-control">
+                  <option>0 (skill can be purchased repeatedly)</option>
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -204,17 +213,16 @@
             </div>
             <h3>Prerequiste Details</h3>
             <div class="form-group"><!-- Begin Skill List Select Area Form Group-->
-              <label for="skill-list" class="col-xs-2 control-label">Skills</label>
+              <label for="prereq-skill-list" class="col-xs-2 control-label">Skills</label>
               <div class="col-xs-10">
-                <select id="skill-list" multiple class="form-control">
-                  <option>Siege Weapon</option>
-                  <option>Battering Ram</option>
+                <select id="prereq-skill-list" multiple class="form-control">
+
                 </select>
               </div>
             </div><!-- End Skill List Select Area Form Group-->
             <div class="form-group">
               <div class="col-xs-offset-2 col-xs-10">
-                <button class="btn btn-default" id='add-skill-prereq-and'>Delete Selected Skill</button>
+                <button class="btn btn-default" id='del-skill-from-prereq-skill-list'>Delete Selected Skill</button>
               </div>
             </div>
 
@@ -222,7 +230,17 @@
               <label for="skill-choice" class="col-xs-2 control-label">Add Skill</label>
               <div class="col-xs-10">
                 <select id="skill-choice" class="form-control">
-
+                  <option>Siege Weapon</option>
+                  <option>Battering Ram</option>
+                  <option>One-Handed Swords</option>
+                  <option>Two-Handed Swords</option></option>
+                  <option>One-Handed Blunt</option>
+                  <option>Two-Handed Blunt</option>
+                  <option>Axes</option>
+                  <option>Thrown Weapons</option>
+                  <option>Bows</option>
+                  <option>Shields</option>
+                  <option>Paired Weapons</option>
                 </select>
               </div>
             </div><!-- End Skill Add Dropdown Form Group-->
