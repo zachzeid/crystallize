@@ -1,17 +1,19 @@
-{
-  "groups": [
-
-  ],
-	"skills": {
-		"SkillName": {
-			"group": "name",
-			"warrior": 30,
-			"rogue": 31,
-			"prereqs": [
-				[],
-				[],
-				[]
-			]
-		}
-	}
-}
+[
+  {
+    "group": "Fucks",
+    "name": "Two-Handed Fucks",
+    "is_viewable": true,
+    "skill_hand": "str",
+    "skill_health": 4,
+    "skill_level": 0,
+    "warrior_cost": 1,
+    "rogue_cost": 2,
+    "mage_cost": 3,
+    "cleric_cost": 4,
+    "prereqs": [
+      ["skill 1", "skill 2"],
+      ["skill 1", "skill 56"],
+      ["skill 43", "skill fuck this noise"]
+    ]
+  }
+]
