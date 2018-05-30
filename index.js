@@ -1,4 +1,23 @@
 $(document).ready(() => {
+  const prereqs = [];
+  let currentPrereq = null;
+
+  function updateCurrentPrereqs() {
+    // stuff
+    // 1.  This function should update current selection in Choose Existing prereq
+    // based on the value of the prereqs[currentPrereq]
+    // Cases:
+    // if list is empty; set value to "(no skills selected)"
+    // if list has items; set value to prereqs[currentPrereq]
+    // e.g. if prereqs[currentPrereq] = ['1', '2', '3']; then list will be
+    // 1, 2, 3 in dropdown.
+    if (prereqs[currentPrereq].length === 0) {
+      $('#skill-prereq option:selected').text('(no skill selected)');
+    } else {
+      $('#skill-prereq option:selected').text(prereqs[currentPrereq].join(', '));
+    }
+  }
+
   $('#skill-details').validate();
   // [
   //   {
@@ -24,6 +43,7 @@ $(document).ready(() => {
       alert('Yo fukd!');
       return;
     }
+
     $('#skill-details').validate();
     event.preventDefault();
     const skillName = $('#skill-name').val();
@@ -36,7 +56,6 @@ $(document).ready(() => {
     const rogueCost = parseInt($('#rogue-skill-cost').val(), 10);
     const mageCost = parseInt($('#mage-skill-cost').val(), 10);
     const clericCost = parseInt($('#cleric-skill-cost').val(), 10);
-    const prereqs = [];
     const skill = {
       skillName,
       skillGroup,
@@ -52,6 +71,7 @@ $(document).ready(() => {
     };
     console.log(skill);
   });
+
   $('#delete-skill').click((event) => {
     console.log('deleting skill');
     event.preventDefault();
@@ -61,13 +81,39 @@ $(document).ready(() => {
     console.log('Adding skill to main skill list');
     event.preventDefault();
   });
+
   $('#del-skill-select-main').click((event) => {
     console.log('Removing skill from main skill list');
     event.preventDefault();
   });
 
+  $('#skill-choice').change(() => {
+    const skillChoice = $('#skill-choice').val();
+
+    if (!skillChoice) {
+      return;
+    }
+
+    $('#prereq-skill-list').append(`<option>${skillChoice}</option>`);
+    // it is not over 9000 for a reason
+    // This is a simple way to have auto scrolldown by having a BIG number of pixels
+    // as this changes the size of the text area, and forces the scroll button
+    // to be at the bottom of a text area.
+    $('#prereq-skill-list').scrollTop(9000);
+
+    $('#skill-choice option:selected').attr('disabled', 'disabled');
+    $('#skill-choice').val('');
+    prereqs[currentPrereq].push(skillChoice);
+    updateCurrentPrereqs();
+  });
+
   $('#add-prereq-or').click((event) => {
-    console.log('Adding pre-req from skill');
+    $('#prereq-skill-list').prop('disabled', false);
+    $('#del-skill-from-prereq-skill-list').prop('disabled', false);
+    $('#skill-choice').prop('disabled', false);
+    currentPrereq = prereqs.push([]) - 1;
+    $('#skill-prereq').append('<option></option>');
+    updateCurrentPrereqs();
     event.preventDefault();
   });
 
@@ -75,18 +121,24 @@ $(document).ready(() => {
     console.log('Removing pre-req from skill');
     event.preventDefault();
   });
+
   $('#del-skill-from-prereq-skill-list').click((event) => {
-    console.log('Removing skill from pre-req list');
+    const selectedSkillChoice = $('#prereq-skill-list option:selected').val();
+    $('#prereq-skill-list option:selected').remove();
+    $(`#skill-choice option:contains('${selectedSkillChoice}')`).removeAttr('disabled');
+    const index = prereqs[currentPrereq].indexOf(selectedSkillChoice);
+    if (index !== -1) {
+      prereqs[currentPrereq].splice(index, 1);
+    }
+    updateCurrentPrereqs();
     event.preventDefault();
   });
-  $('#add-skill-prereq-and').click((event) => {
-    console.log('Add skill to pre-req list');
-    event.preventDefault();
-  });
+
   $('#import-json').click((event) => {
     console.log('Importing JSON into Crystallize.');
     event.preventDefault();
   });
+
   $('#export-json').click((event) => {
     console.log('Exporting JSON from Crystallize');
     event.preventDefault();
