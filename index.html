@@ -57,35 +57,35 @@
             <div class="form-group"><!-- Begin Skill Name Form  Group-->
               <label for="skill-name" class="col-xs-2 control-label">Skill Name</label>
               <div class="col-xs-10">
-                <input id="skill-name" class="form-control">
+                <input id="skill-name" class="form-control" data-rule-required="true">
               </div>
             </div><!--End Skill Name Form Group-->
 
             <div class="form-group"><!-- Begin Skill Cost Form  Group-->
               <label for="warrior-skill-cost" class="col-xs-2 control-label">Warrior Skill Cost</label>
               <div class="col-xs-10">
-                <input id="warrior-skill-cost" class="form-control" data-rule-number="true">
+                <input id="warrior-skill-cost" class="form-control" data-rule-number="true" data-rule-required="true">
               </div>
             </div><!--End Skill Cost Form Group-->
 
             <div class="form-group"><!-- Begin Skill Cost Form  Group-->
               <label for="rogue-skill-cost" class="col-xs-2 control-label">Rogue Skill Cost</label>
               <div class="col-xs-10">
-                <input id="rogue-skill-cost" class="form-control" data-rule-number="true">
+                <input id="rogue-skill-cost" class="form-control" data-rule-number="true" data-rule-required="true">
               </div>
             </div><!--End Skill Cost Form Group-->
 
             <div class="form-group"><!-- Begin Skill Cost Form  Group-->
               <label for="mage-skill-cost" class="col-xs-2 control-label">Mage Skill Cost</label>
               <div class="col-xs-10">
-                <input id="mage-skill-cost" class="form-control" data-rule-number="true">
+                <input id="mage-skill-cost" class="form-control" data-rule-number="true" data-rule-required="true">
               </div>
             </div><!--End Skill Cost Form Group-->
 
             <div class="form-group"><!-- Begin Skill Cost Form  Group-->
               <label for="cleric-skill-cost" class="col-xs-2 control-label">Cleric Skill Cost</label>
               <div class="col-xs-10">
-                <input id="cleric-skill-cost" class="form-control" data-rule-number="true">
+                <input id="cleric-skill-cost" class="form-control" data-rule-number="true" data-rule-required="true">
               </div>
             </div><!--End Skill Cost Form Group-->
 
@@ -197,11 +197,6 @@
               <label for="skill-prereq" class="col-xs-2 control-label">Choose Existing Prerequiste</label>
               <div class="col-xs-10">
                 <select id="skill-prereq" class="form-control">
-                  <option>["Siege Weapons", "Battering Ram"]</option>
-              		<option>["Siege Weapons", "Capped Battering Ram"]</option>
-              		<option>["Siege Weapons", "Catapult"]</option>
-              		<option>["Siege Weapons", "Ballista"]</option>
-              		<option>["Siege Weapons", "Trebuchet"]</option>
                 </select>
               </div>
             </div><!-- End Pre-req Skill  Dropdown Form Group-->
@@ -215,21 +210,22 @@
             <div class="form-group"><!-- Begin Skill List Select Area Form Group-->
               <label for="prereq-skill-list" class="col-xs-2 control-label">Skills</label>
               <div class="col-xs-10">
-                <select id="prereq-skill-list" multiple class="form-control">
+                <select id="prereq-skill-list" multiple class="form-control" disabled="disabled">
 
                 </select>
               </div>
             </div><!-- End Skill List Select Area Form Group-->
             <div class="form-group">
               <div class="col-xs-offset-2 col-xs-10">
-                <button class="btn btn-default" id='del-skill-from-prereq-skill-list'>Delete Selected Skill</button>
+                <button class="btn btn-default" id='del-skill-from-prereq-skill-list' disabled="disabled">Delete Selected Skill</button>
               </div>
             </div>
 
             <div class="form-group"><!-- Begin Skill Add Dropdown Form Group-->
               <label for="skill-choice" class="col-xs-2 control-label">Add Skill</label>
               <div class="col-xs-10">
-                <select id="skill-choice" class="form-control">
+                <select id="skill-choice" class="form-control" disabled="disabled">
+                  <option></option>
                   <option>Siege Weapon</option>
                   <option>Battering Ram</option>
                   <option>One-Handed Swords</option>
