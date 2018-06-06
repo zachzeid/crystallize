@@ -108,12 +108,21 @@ $(document).ready(() => {
   });
 
   $('#add-prereq-or').click((event) => {
+    // This happens when "Add New Prereq" is FIRST selected, otherwise
+    // it's mostly moot after that.
     $('#prereq-skill-list').prop('disabled', false);
     $('#del-skill-from-prereq-skill-list').prop('disabled', false);
     $('#skill-choice').prop('disabled', false);
-    currentPrereq = prereqs.push([]) - 1;
-    $('#skill-prereq').append('<option></option>');
-    updateCurrentPrereqs();
+    if (currentPrereq !== null && prereqs[currentPrereq].length === 0) {
+      alert('select a skill fool');
+    } else {
+      currentPrereq = prereqs.push([]) - 1;
+      $('#skill-prereq').append('<option></option>');
+
+      $('#prereq-skill-list option').remove();
+      $('#skill-choice option').removeAttr('disabled');
+      updateCurrentPrereqs();
+    }
     event.preventDefault();
   });
 
