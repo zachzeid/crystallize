@@ -126,7 +126,7 @@ $(document).ready(() => {
     event.preventDefault();
   });
 
-  $('#del-prereq-or').click((event) => {
+  $('#del-new-prereq-list').click((event) => {
     console.log('Removing pre-req from skill');
     event.preventDefault();
   });
