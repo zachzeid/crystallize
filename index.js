@@ -107,7 +107,7 @@ $(document).ready(() => {
     updateCurrentPrereqs();
   });
 
-  $('#add-prereq-or').click((event) => {
+  $('#add-new-prereq-list').click((event) => {
     // This happens when "Add New Prereq" is FIRST selected, otherwise
     // it's mostly moot after that.
     $('#prereq-skill-list').prop('disabled', false);
