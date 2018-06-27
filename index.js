@@ -112,7 +112,7 @@ $(document).ready(() => {
       alert('select a skill fool');
     } else {
       currentPrereq = prereqs.push([]) - 1;
-      $('#choose-existing-prereq').append('<option></option>');
+      $('#choose-existing-prereq').append('<option selected="selected"></option>');
 
       $('#prereq-skills option').remove();
       $('#add-prereq-skill option').removeAttr('disabled');
