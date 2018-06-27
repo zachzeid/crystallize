@@ -35,16 +35,16 @@
           <p>Select an existing skill from dropdown or click "Add New Skill" to begin editing skill details.</p>
           <form class="form-horizontal">
             <div class="form-group"><!-- Begin add skill form group-->
-              <label for="skill" class="col-xs-2 control-label">Choose Existing Skill</label>
+              <label for="choose-existing-skill" class="col-xs-2 control-label">Choose Existing Skill</label>
               <div class="col-xs-10">
-                <select id="skill-select-main" class="form-control">
+                <select id="choose-existing-skill" class="form-control">
                 </select>
               </div>
             </div><!-- End add skill form group -->
             <div class="form-group">
               <div class="col-xs-offset-2 col-xs-10">
-                  <button class="btn btn-default" id="add-skill-select-main">Add New Skill</button>
-                  <button class="btn btn-default" id="del-skill-select-main">Delete Selected Skill</button>
+                  <button class="btn btn-default" id="add-new-skill">Add New Skill</button>
+                  <button class="btn btn-default" id="delete-selected-skill">Delete Selected Skill</button>
               </div>
             </div>
           </form>
@@ -194,37 +194,37 @@
           <h2>Skill Prerequistes</h2>
           <form class="form-horizontal">
             <div class="form-group"><!-- Begin Prereq Skill Dropdown Form Group-->
-              <label for="skill-prereq" class="col-xs-2 control-label">Choose Existing Prerequiste</label>
+              <label for="choose-existing-prereq" class="col-xs-2 control-label">Choose Existing Prereq</label>
               <div class="col-xs-10">
-                <select id="skill-prereq" class="form-control">
+                <select id="choose-existing-prereq" class="form-control">
                 </select>
               </div>
             </div><!-- End Pre-req Skill  Dropdown Form Group-->
             <div class="form-group">
               <div class="col-xs-offset-2 col-xs-10">
-                <button class="btn btn-default" id="add-new-prereq-list">Add New Prereq</button>
-                <button class="btn btn-default" id="del-new-prereq-list">Delete Selected Prereq</button>
+                <button class="btn btn-default" id="add-new-prereq">Add New Prereq</button>
+                <button class="btn btn-default" id="delete-selected-prereq">Delete Selected Prereq</button>
               </div>
             </div>
             <h3>Prerequiste Details</h3>
             <div class="form-group"><!-- Begin Skill List Select Area Form Group-->
-              <label for="prereq-skill-list" class="col-xs-2 control-label">Skills</label>
+              <label for="prereq-skills" class="col-xs-2 control-label">Prereq Skills</label>
               <div class="col-xs-10">
-                <select id="prereq-skill-list" multiple class="form-control" disabled="disabled">
+                <select id="prereq-skills" multiple class="form-control" disabled="disabled">
 
                 </select>
               </div>
             </div><!-- End Skill List Select Area Form Group-->
             <div class="form-group">
               <div class="col-xs-offset-2 col-xs-10">
-                <button class="btn btn-default" id='del-skill-from-prereq-skill-list' disabled="disabled">Delete Selected Skill</button>
+                <button class="btn btn-default" id='delete-selected-prereq-skill' disabled="disabled">Delete Selected Prereq Skill</button>
               </div>
             </div>
 
             <div class="form-group"><!-- Begin Skill Add Dropdown Form Group-->
-              <label for="skill-choice" class="col-xs-2 control-label">Add Skill</label>
+              <label for="add-prereq-skill" class="col-xs-2 control-label">Add Prereq Skill</label>
               <div class="col-xs-10">
-                <select id="skill-choice" class="form-control" disabled="disabled">
+                <select id="add-prereq-skill" class="form-control" disabled="disabled">
                   <option></option>
                   <option>Siege Weapon</option>
                   <option>Battering Ram</option>
@@ -257,9 +257,9 @@
           <h2>Import/Export JSON</h2>
           <form class="form-horizontal"><!-- Begin JSON form-->
             <div class="form-group"><!-- Begin JSON Area Form Group-->
-              <label for="skills-json-area" class="col-xs-2 control-label">Skills JSON</label>
+              <label for="skills-json" class="col-xs-2 control-label">Skills JSON</label>
               <div class="col-xs-10">
-                <textarea class="form-control" rows="3" id="skills-json-area">
+                <textarea class="form-control" rows="3" id="skills-json">
                 </textarea>
               </div>
             </div><!-- End JSON Area Form Group-->
