@@ -121,6 +121,11 @@ $(document).ready(() => {
     event.preventDefault();
   });
 
+  $('#delete-selected-prereq').click((event) => {
+    console.log('deleting selected prereq');
+    event.preventDefault();
+  });
+
   $('#delete-selected-prereq-skill').click((event) => {
     const selectedSkillChoice = $('#prereq-skills option:selected').val();
     $('#prereq-skills option:selected').remove();
