@@ -14,7 +14,7 @@ $(document).ready(() => {
     if (prereqs[currentPrereq].length === 0) {
       $('#choose-existing-prereq option:selected').text('(no skill selected)');
     } else {
-      $('#schoose-existing-prereq option:selected').text(prereqs[currentPrereq].join(', '));
+      $('#choose-existing-prereq option:selected').text(prereqs[currentPrereq].join(', '));
     }
   }
 
