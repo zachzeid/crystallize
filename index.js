@@ -12,9 +12,9 @@ $(document).ready(() => {
     // e.g. if prereqs[currentPrereq] = ['1', '2', '3']; then list will be
     // 1, 2, 3 in dropdown.
     if (prereqs[currentPrereq].length === 0) {
-      $('#skill-prereq option:selected').text('(no skill selected)');
+      $('#choose-existing-prereq option:selected').text('(no skill selected)');
     } else {
-      $('#skill-prereq option:selected').text(prereqs[currentPrereq].join(', '));
+      $('#schoose-existing-prereq option:selected').text(prereqs[currentPrereq].join(', '));
     }
   }
 
@@ -72,69 +72,59 @@ $(document).ready(() => {
     console.log(skill);
   });
 
-  $('#delete-skill').click((event) => {
-    console.log('deleting skill');
-    event.preventDefault();
-  });
-
-  $('#add-skill-select-main').click((event) => {
+  $('#add-new-skill').click((event) => {
     console.log('Adding skill to main skill list');
     event.preventDefault();
   });
 
-  $('#del-skill-select-main').click((event) => {
+  $('#delete-selected-skill').click((event) => {
     console.log('Removing skill from main skill list');
     event.preventDefault();
   });
 
-  $('#skill-choice').change(() => {
-    const skillChoice = $('#skill-choice').val();
+  $('#add-prereq-skill').change(() => {
+    const skillChoice = $('#add-prereq-skill').val();
 
     if (!skillChoice) {
       return;
     }
 
-    $('#prereq-skill-list').append(`<option>${skillChoice}</option>`);
+    $('#prereq-skills').append(`<option>${skillChoice}</option>`);
     // it is not over 9000 for a reason
     // This is a simple way to have auto scrolldown by having a BIG number of pixels
     // as this changes the size of the text area, and forces the scroll button
     // to be at the bottom of a text area.
-    $('#prereq-skill-list').scrollTop(9000);
+    $('#prereq-skills').scrollTop(9000);
 
-    $('#skill-choice option:selected').attr('disabled', 'disabled');
-    $('#skill-choice').val('');
+    $('#add-prereq-skill option:selected').attr('disabled', 'disabled');
+    $('#add-prereq-skill').val('');
     prereqs[currentPrereq].push(skillChoice);
     updateCurrentPrereqs();
   });
 
-  $('#add-new-prereq-list').click((event) => {
+  $('#add-new-prereq').click((event) => {
     // This happens when "Add New Prereq" is FIRST selected, otherwise
     // it's mostly moot after that.
-    $('#prereq-skill-list').prop('disabled', false);
-    $('#del-skill-from-prereq-skill-list').prop('disabled', false);
-    $('#skill-choice').prop('disabled', false);
+    $('#prereq-skills').prop('disabled', false);
+    $('#delete-selected-prereq-skill').prop('disabled', false);
+    $('#add-prereq-skill').prop('disabled', false);
     if (currentPrereq !== null && prereqs[currentPrereq].length === 0) {
       alert('select a skill fool');
     } else {
       currentPrereq = prereqs.push([]) - 1;
-      $('#skill-prereq').append('<option></option>');
+      $('#choose-existing-prereq').append('<option></option>');
 
-      $('#prereq-skill-list option').remove();
-      $('#skill-choice option').removeAttr('disabled');
+      $('#prereq-skills option').remove();
+      $('#add-prereq-skill option').removeAttr('disabled');
       updateCurrentPrereqs();
     }
     event.preventDefault();
   });
 
-  $('#del-new-prereq-list').click((event) => {
-    console.log('Removing pre-req from skill');
-    event.preventDefault();
-  });
-
-  $('#del-skill-from-prereq-skill-list').click((event) => {
-    const selectedSkillChoice = $('#prereq-skill-list option:selected').val();
-    $('#prereq-skill-list option:selected').remove();
-    $(`#skill-choice option:contains('${selectedSkillChoice}')`).removeAttr('disabled');
+  $('#delete-selected-prereq-skill').click((event) => {
+    const selectedSkillChoice = $('#prereq-skills option:selected').val();
+    $('#prereq-skills option:selected').remove();
+    $(`#add-prereq-skill option:contains('${selectedSkillChoice}')`).removeAttr('disabled');
     const index = prereqs[currentPrereq].indexOf(selectedSkillChoice);
     if (index !== -1) {
       prereqs[currentPrereq].splice(index, 1);
